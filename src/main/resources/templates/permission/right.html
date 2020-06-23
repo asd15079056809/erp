@@ -10,26 +10,28 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="/resources/css/public.css" media="all" />
-    <link rel="stylesheet" href="/resources/layui_ext/dtree/dtree.css" media="all" />
-    <link rel="stylesheet" href="/resources/layui_ext/dtree/font/dtreefont.css" media="all" />
+    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resources/css/public.css" media="all"/>
+    <link rel="stylesheet" href="/resources/layui_ext/dtree/dtree.css" media="all"/>
+    <link rel="stylesheet" href="/resources/layui_ext/dtree/font/dtreefont.css" media="all"/>
 </head>
 <body class="childrenBody">
 <!-- 查询条件开始-->
 
 <form class="layui-form">
     <blockquote class="layui-elem-quote quoteBox">
-        <form class="layui-form" >
+        <form class="layui-form">
             <div class="layui-inline">
                 <div class="layui-input-inline">
-                    <input type="text" name="title" id="title" class="layui-input searchVal" placeholder="请输入权限名称" />
+                    <input type="text" name="title" id="title" class="layui-input searchVal" placeholder="请输入权限名称"/>
                 </div>
                 <div class="layui-input-inline">
-                    <input type="text" name="percode" id="percode" class="layui-input searchVal" placeholder="请输入权限编码" />
+                    <input type="text" name="percode" id="percode" class="layui-input searchVal" placeholder="请输入权限编码"/>
                 </div>
-                <button type="button" class="layui-btn"><span class="layui-icon layui-icon-search"></span>查询</button>
-                <button type="reset" class="layui-btn layui-btn-warm"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+                <button type="button" class="layui-btn" lay-submit lay-filter="doSearch"><span class="layui-icon layui-icon-search"></span>查询</button>
+                <button type="reset" class="layui-btn layui-btn-warm"><span
+                        class="layui-icon layui-icon-refresh-1"></span>重置
+                </button>
             </div>
         </form>
     </blockquote>
@@ -42,19 +44,25 @@
     <table class="layui-hide" id="permissionTable" lay-filter="permissionTable"></table>
     <!-- 工具栏 -->
     <div id="permissionToolBar" style="display: none;">
-        <button type="button" lay-event="add" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-add-1"></span>添加权限</button>
+        <button type="button" lay-event="add" class="layui-btn layui-btn-sm"><span
+                class="layui-icon layui-icon-add-1"></span>添加权限
+        </button>
     </div>
 
     <div id="permissionRowBar" style="display: none;">
-        <button type="button" lay-event="update" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-edit"></span>更新</button>
-        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-danger"><span class="layui-icon layui-icon-delete"></span>删除</button>
+        <button type="button" lay-event="update" class="layui-btn layui-btn-sm"><span
+                class="layui-icon layui-icon-edit"></span>更新
+        </button>
+        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-danger"><span
+                class="layui-icon layui-icon-delete"></span>删除
+        </button>
     </div>
 </div>
 <!-- 数据表格结束 -->
 
 <!-- 添加和修改的弹出层开始 -->
 
-<div  style="display: none;padding: 5px" id="addOrUpdateDiv">
+<div style="display: none;padding: 5px" id="addOrUpdateDiv">
     <form class="layui-form" style="width:90%;" id="dataFrm" lay-filter="dataFrm">
         <div class="layui-form-item">
             <label class="layui-form-label">选择菜单</label>
@@ -67,21 +75,22 @@
         <div class="layui-form-item">
             <label class="layui-form-label">权限名称</label>
             <div class="layui-input-block">
-				
-                <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
+
+                <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入权限名称"
+                       class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">权限编码</label>
             <div class="layui-input-block">
-                <input type="text" name="percode"  autocomplete="off" placeholder="请输入权限编码" class="layui-input">
+                <input type="text" name="percode" autocomplete="off" placeholder="请输入权限编码" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">是否展开</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="open" value="1" title="是" >
+                    <input type="radio" name="open" value="1" title="是">
                     <input type="radio" name="open" value="0" title="否" checked="">
                 </div>
             </div>
@@ -89,7 +98,7 @@
                 <label class="layui-form-label">是否可用</label>
                 <div class="layui-input-block">
                     <input type="radio" name="available" value="1" title="是" checked="">
-                    <input type="radio" name="available" value="0" title="否" >
+                    <input type="radio" name="available" value="0" title="否">
                 </div>
             </div>
         </div>
@@ -97,7 +106,9 @@
         <div class="layui-form-item layui-row layui-col-xs12">
             <div class="layui-input-block" style="text-align: center;">
                 <button type="button" class="layui-btn"><span class="layui-icon layui-icon-add-1"></span>提交</button>
-                <button type="reset" class="layui-btn layui-btn-warm"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+                <button type="reset" class="layui-btn layui-btn-warm"><span
+                        class="layui-icon layui-icon-refresh-1"></span>重置
+                </button>
             </div>
         </div>
     </form>
@@ -106,25 +117,63 @@
 <!-- 添加和修改的弹出层结束 -->
 
 
-
-
-
 <script type="text/javascript" src="/resources/layui/layui.js"></script>
 <script type="text/javascript">
 
     var tableIns;
     layui.extend({
         dtree: '/resources/layui_ext/dtree/dtree'   // {/}的意思即代表采用自有路径，即不跟随 base 路径
-    }).use(['jquery','form','table','layer','dtree'],function () {
-        var $=layui.jquery;
-        var form=layui.form;
-        var table=layui.table;
-        var layer=layui.layer;
+    }).use(['jquery', 'form', 'table', 'layer', 'dtree'], function () {
+        var $ = layui.jquery;
+        var form = layui.form;
+        var table = layui.table;
+        var layer = layui.layer;
         var dtree = layui.dtree;
 
+        //渲染数据表格
+        tableIns = table.render({
+            elem: '#permissionTable'//绑定表格组件的id元素
+            , url: '/erp/permission/permissionList'//数据发送的请求路径
+            , toolbar: '#permissionToolBar' //开启头部工具栏，并为其绑定左侧模板
+            , title: '菜单数据表'
+            , height: 'full-100'
+            , page: true
+            , cols: [
+                [
+                    {type: 'checkbox', fixed: 'left'}
+                    , {field: 'id', title: 'ID', align: 'center', width: 80}
+                    , {field: 'title', title: '菜单名称', align: 'center', width: 150}
+                    , {field: 'percode', title: '编码', align: 'center'}
+                    , {
+                    field: 'available', title: '是否可用', align: 'center', templet: function (d) {
+                        return d.available == 1 ? "<font color='blue'>是</font>" : "<font color='red'>否</font>";
+                    }
+                }
+                    , {field: 'right', title: '操作', align: 'center', toolbar: "#permissionRowBar", width: 200}
+                ]
+            ]
+            //回调函数
+            , done: function (res, curr, count) {
+                // 判断当前页码是否大于1
+                if (curr > 1 && res.data.length == 0) {
+                    //当前页码-1
+                    var pageValue = curr - 1;
+                    tableIns.reload({
+                        page: {curr: pageValue}// 修改页码
+                    })
+                }
+            }
+        });
 
+        form.on("submit(doSearch)",function (data) {
+            tableIns.reload({
+                where:data.field,//条件参数
+                page:{
+                    curr:1 //当前页码
+                }
+            });
+        });
 
-        
 
     });
 
@@ -134,8 +183,8 @@
      */
     function loadTableData(id) {
         tableIns.reload({
-            where:{"id":id},
-            page:{curr:1}
+            where: {"id": id},
+            page: {curr: 1}
         })
     }
 </script>

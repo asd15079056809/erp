@@ -35,7 +35,7 @@ public class Code {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.43.227:3306/erp?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://192.168.1.7:3306/erp?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -56,7 +56,7 @@ public class Code {
         // 公共父类
         // 写于父类中的公共字段
 //        strategy.setSuperEntityColumns("id");
-        strategy.setInclude("sys_dept");
+        strategy.setInclude("sys_role_user");
         strategy.setControllerMappingHyphenStyle(true);//url中驼峰连接符
         strategy.setTablePrefix("sys" + "_");//去掉表别名，表前缀
         strategy.setEntityLombokModel(true);//实体使用lombok

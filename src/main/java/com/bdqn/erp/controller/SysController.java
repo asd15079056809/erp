@@ -71,4 +71,11 @@ public class SysController {
     public String toPermissionRight(){
         return "permission/right";
     }
+
+
+    //角色管理
+    @RequestMapping("/toRoleManager")
+    public String  roleList(){
+        return "role/roleManager";
+    }
 }

@@ -10,7 +10,7 @@ public class RabbitmqConnection {
      private static ConnectionFactory connectionFactory ;
      static{
           connectionFactory=new ConnectionFactory();
-          connectionFactory.setHost("192.168.1.6");
+          connectionFactory.setHost("192.168.1.7");
           connectionFactory.setVirtualHost("/user");
           connectionFactory.setPort(5672);
           connectionFactory.setUsername("root");

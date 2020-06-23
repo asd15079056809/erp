@@ -6,9 +6,11 @@ import com.bdqn.erp.service.PermissionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author 熊伟
@@ -17,4 +19,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
 
+    @Override
+    public List<Integer> getRolePermissionIdByRoleId(int roleId) {
+        List<Integer> pids = baseMapper.getRolePermissionIdByRoleId(roleId);
+        return pids;
+    }
 }

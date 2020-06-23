@@ -3,6 +3,8 @@ package com.bdqn.erp.service;
 import com.bdqn.erp.entity.Log;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface LogService extends IService<Log> {
 
+    List<Log> getLog();
+
+    List<Log> getLogs();
 }

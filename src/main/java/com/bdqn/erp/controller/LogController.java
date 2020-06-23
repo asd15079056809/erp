@@ -51,5 +51,16 @@ public class LogController {
 
         return  result;
     }
-}
 
+    //ce测试使用mybatis动态sql
+    @RequestMapping("/findlog")
+    public List<Log>  findlog(){
+        List<Log> list=  logService.getLog();
+        return  list;
+    }
+    @RequestMapping("findlog2")
+     public List<Log> findlog2(){
+        List<Log> list =logService.getLogs();
+        return list;
+    }
+}

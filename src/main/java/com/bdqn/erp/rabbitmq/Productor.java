@@ -10,9 +10,8 @@ public class Productor {
     public static void main(String[] args) throws IOException, TimeoutException {
          Connection connection = RabbitmqConnection.getConnection();
           Channel channel = connection.createChannel();
-          channel.queueDeclare("hello",false,false,false,null);
-          channel.basicPublish("","hello",null,"zhans".getBytes());
-          channel.close();
+          channel.exchangeDeclare("fanouts","fanout");
+          channel.basicPublish("fanouts","",null,"这里是fanout模型".getBytes());
           connection.close();
 
     }

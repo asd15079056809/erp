@@ -2,6 +2,9 @@ package com.bdqn.erp.mapper;
 
 import com.bdqn.erp.entity.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface PermissionMapper extends BaseMapper<Permission> {
 
+    @Select("select pid from sys_role_permission where rid=#{roleId}")
+    List<Integer> getRolePermissionIdByRoleId(int roleId);
 }

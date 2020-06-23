@@ -5,7 +5,7 @@ spring:
     name: erp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.6:3306/erp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.43.227:3306/erp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
   jackson:
@@ -16,7 +16,7 @@ spring:
   redis:
     database: 0
     password: root
-    host: 192.168.1.6
+    host: 192.168.43.227
     port: 6379
 mybatis-plus:
   configuration:

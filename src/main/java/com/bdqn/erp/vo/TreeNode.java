@@ -21,4 +21,5 @@ public class TreeNode {
      private Boolean spread;
      private String href;
      private List<TreeNode> children =new ArrayList<>();
+     private String checkArr ="0";
 }
